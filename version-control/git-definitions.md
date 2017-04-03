@@ -1,4 +1,4 @@
-# Git Definitions
+# Git Definitely Release 2
 
 **Instructions: ** Define each of the following Git concepts.
 
