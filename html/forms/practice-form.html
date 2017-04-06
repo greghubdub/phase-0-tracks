@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Practice Form</title>
+</head>
+<body>
+
+<h1>Creating a Form</h1>
+
+<form name="Restaurant" action="success.html">
+	<fieldset>
+		<div>
+			<label>Full name:</label>
+			<input type="text" name="fullname">
+		</div>
+		<div>
+			<label>Email:</label>
+			<input type="email" name="email">
+		</div>
+		<div>
+			<label>Password:</label>
+			<input type="password" name="password">
+		</div>
+	</fieldset>
+	<fieldset>
+		<div>
+			<label>Restaurant:</label>
+			<select name="cuisine">
+				<option value="italian">Italian</option>
+				<option value="mexican">Mexican</option>
+				<option value="japanese">Japanese</option>
+			</select> 
+		</div>
+		<div>
+			<label>Choose a date:</label>
+			<input type="date" name="date">
+		</div>
+		<div>
+			<input type="checkbox" name="vgcheck" value="yes">
+			I am vegetarian 
+		</div>
+		<div>
+			<textarea name="textarea" rows="10" cols="50">Allergies or special requests</textarea>
+		</div>
+	</fieldset>
+	
+<button type="submit" action="success.html">Submit</button>
+
+</form>
+
+</body>
+</html>
