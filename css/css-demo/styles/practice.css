@@ -6,3 +6,10 @@
 	padding: 1em;
 	margin: 1em 0 1em 0;
 	border-radius: 0.4em;
+}
+li::after {
+	content: "!"
+}
+.job h3 {
+	text-decoration: underline
+}
