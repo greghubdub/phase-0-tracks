@@ -34,6 +34,12 @@ while interview_number < employee_number
 
 	want_insurance = gets.chomp
 
+	puts "Please list any applicable allergies one at a time"
+
+	while allergy != "sunshine"
+		allergy = gets.chomp
+	end
+
 	if ((my_age == 2017 - my_birth_year) || (my_age == 2017 - (my_birth_year + 1))) && (want_insurance == 'y' || want_garlic == 'y')
 		probably_not_a_vampire = true
 	end
