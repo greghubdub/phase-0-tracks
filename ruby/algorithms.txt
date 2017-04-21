@@ -1,0 +1,19 @@
+# Position elevator door in front of you
+
+	-While door is closed, wait
+	-When door opens, move in
+
+# In elevator turn until button panel is visible
+
+# Move to button panel and align for button manipulation
+
+# Press the button of your destination floor
+
+	-If button did not illuminate, press again
+	-If button illuminated, success
+
+# Wait for floor display to read destination floor
+
+# Wait for arrival noise after display reads correct floor
+
+# Wait for doors to open; once open, move out of elevator
