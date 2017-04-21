@@ -1,19 +1,46 @@
-# Position elevator door in front of you
+# Release 0
 
-	-While door is closed, wait
-	-When door opens, move in
+## Position elevator door in front of you
 
-# In elevator turn until button panel is visible
+	* While door is closed, wait
+	* When door opens, move in
 
-# Move to button panel and align for button manipulation
+## In elevator turn until button panel is visible
 
-# Press the button of your destination floor
+## Move to button panel and align for button manipulation
 
-	-If button did not illuminate, press again
-	-If button illuminated, success
+## Press the button of your destination floor
 
-# Wait for floor display to read destination floor
+	* If button did not illuminate, press again
+	* If button illuminated, success
 
-# Wait for arrival noise after display reads correct floor
+## Wait for floor display to read destination floor
 
-# Wait for doors to open; once open, move out of elevator
+## Wait for arrival noise after display reads correct floor
+
+## Wait for doors to open; once open, move out of elevator
+
+# Release 1
+
+## Task: Feed cats
+
+## Enter pantry
+
+## Locate cat food container
+
+	* Position self before container
+
+## Remove container lid
+	
+## Grasp green scoop found within container
+
+## Dip scoop to fill with cat food
+
+	* Position full scoop over food bowl and overturn
+	* Repeat this section once more, 2 scoops total
+
+## Return scoop to container
+
+## Replace container lid
+
+# Task finished
