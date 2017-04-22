@@ -1,0 +1,68 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+} 
+
+/* header {
+	color: yellow;
+	text-align: center;
+	background-image: url(dumbo.jpg);
+	height: 250px;
+	margin-bottom: 20px;
+} */
+
+header {
+  display: block;
+  position: relative;
+}
+
+header::after {
+  content: "";
+  background: url('dumbo.jpg');
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 5;
+  margin-bottom: 20px;
+  height: 250px;
+}
+
+h1, h2, h3, h4 {
+	text-transform: uppercase;
+}
+
+details p {
+	font-family: Trebuchet;
+}
+
+.column-1 {
+	margin-top: 20px;
+	margin-bottom: 50px;
+	background-color: lightblue;
+	display: inline;
+	float: left;
+	max-width: 45%;
+}
+
+.column-2 {
+	margin-top: 20px;
+	margin-bottom: 50px;
+	background-color: pink;
+	max-width: 45%;
+	margin-left: 46%;
+} 
+
+/* #columns-parter {
+	column-count: 2;
+	-webkit-column-gap: 20px;
+} */
+
+footer {
+	text-align: center;
+	margin: auto 0;
+	margin-top: 60px;
+}
