@@ -4,6 +4,8 @@ employee_number = gets.chomp.to_i
 
 interview_number = 0
 
+allergies_array = []
+
 while interview_number < employee_number
 
 	probably_not_a_vampire = false
@@ -36,8 +38,9 @@ while interview_number < employee_number
 
 	puts "Please list any applicable allergies one at a time"
 
-	while allergy != "sunshine"
-		allergy = gets.chomp
+	until allergies_array.include? 'done'
+		allergies_array.push gets.chomp
+		break if allergies_array.include? 'sunshine'
 	end
 
 	if ((my_age == 2017 - my_birth_year) || (my_age == 2017 - (my_birth_year + 1))) && (want_insurance == 'y' || want_garlic == 'y')
@@ -59,6 +62,7 @@ while interview_number < employee_number
 
 	interview_result = case
 		when probably_not_a_vampire then "Probably not a vampire"
+		when allergies_array.last == "sunshine" then "Probably a vampire"
 		when probably_a_vampire then "Probably a vampire"
 		when almost_certainly_a_vampire then "Almost certainly a vampire"
 		when definitely_a_vampire then "Definitely a vampire"
