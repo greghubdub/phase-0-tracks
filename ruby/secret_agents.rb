@@ -45,9 +45,9 @@ puts "Would you like to decrypt or encrypt a password?"
 
 my_choice = gets.strip
 
-if my_choice = "decrypt"
-	puts "Your decrypted message is #{decrypt(my_message))}"
-elsif my_choice = "encrypt"
+if my_choice == "decrypt"
+	puts "Your decrypted message is #{decrypt(my_message)}"
+elsif my_choice == "encrypt"
 	puts "Your encrypted message is #{encrypt(my_message)}"
 else 
 	puts "I'm sorry, I didn't catch that. Would you like to decrypt or encrypt a password?"
