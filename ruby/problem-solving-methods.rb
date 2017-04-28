@@ -1,25 +1,15 @@
-def search_array(arr, num)
-	puts arr
-	puts num
-	arr.each {|x| index_array << x }
-	count = count+1
-	end
-end
-
-
-
-search_array([72, 95, 26, 1], 95)
-
-def search_array(array, x)
-    new_array = []
-    array.each {|item| new_array << item }
-end
+# Release 0
 
 def search_array(arr, num)
-	a = arr
 	count = 0
-  when a.count "num" >= 1
-	puts 
-	count = count+1
+	arr.each do |x| 
+		if num == arr[x]
+			p x
+		end
 	end
 end
+
+p search_array([5, 4, 3, 2], 4)
+
+# Release 1
+
