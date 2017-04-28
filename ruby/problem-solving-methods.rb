@@ -1,5 +1,5 @@
 # Release 0
-=begin
+
 def search_array(arr, num)
 	count = 0
 	arr.each do |x| 
@@ -10,12 +10,9 @@ def search_array(arr, num)
 	end
 end
 
-p search_array([5, 4, 3, 2], 3)
+search_array([5, 4, 3, 2], 4)
 
-# Release 1
-=end
-#=begin
-	
+# Release 1	
 
 def fib(bit)
 	fib_array = [0]
@@ -34,8 +31,12 @@ def fib(bit)
 p fib_array
 end
 
-fib(45)
+fib(15)
 
-#=end
+# Release 2
+
+
+
+
 
 
