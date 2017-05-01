@@ -70,17 +70,16 @@ puts "Please enter any client data category you might need to update. If finishe
 
 update_key = gets.chomp
 
-puts "What is the new information for #{update_key}?"
-
-update_value = gets.chomp
-
-update_key = update_key.to_sym
-
-if info_form.has_key?(update_key)
-	info_form[update_key] = update_value
+if update_key == "none"
+	p info_form
+else
+	puts "What is the new information for #{update_key}?"
+	update_value = gets.chomp
+	update_key = update_key.to_sym
+	if info_form.has_key?(update_key)
+		info_form[update_key] = update_value
+	end
 end
-
-p info_form
 
 info_form[:age] = info_form[:age].to_i
 
