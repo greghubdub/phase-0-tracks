@@ -46,8 +46,15 @@ def create_list(item)
 	grocery_list
 end
 
-def add_item(groceries, new_item, quantity)
-	
+def add_item(groceries, new_item, quantity = 0)
+	groceries[new_item] = quantity
+	groceries
 end
 
-p create_list("apple salsa cheese")
+our_list = create_list("apple salsa cheese")
+
+p our_list
+
+add_item(our_list, "raisins", 5)
+
+p our_list
