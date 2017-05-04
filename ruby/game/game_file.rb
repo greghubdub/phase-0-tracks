@@ -15,10 +15,10 @@
 	
 class WordGame
 
-	attr_accessor :word
-	attr_accessor :feedback
-	attr_reader :guess_count
-	attr_reader :is_over
+#	attr_accessor :word
+#	attr_accessor :feedback
+#	attr_reader :guess_count
+#	attr_reader :is_over
 
 	def initialize(word)
 		@word = word
@@ -27,8 +27,8 @@ class WordGame
 		@is_over = false
 	end
 
-	def check_guess
-
+	def check_guess(guess)
+		
 	end
 
 end
