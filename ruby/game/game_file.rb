@@ -17,11 +17,9 @@ class WordGame
 
 	attr_accessor :word
 	attr_accessor :feedback
-	attr_accessor :word_array
 	attr_writer :guess
 	attr_reader :guess_count
 	attr_reader :is_over
-	attr_reader :guess_array
 
 	def initialize(word)
 		@word = word
@@ -38,9 +36,9 @@ class WordGame
 			@guess_count += 1
 		end
 		@guess_array << guess
-		@word_array.each do |i|
-			if i == guess
-				@feedback[@word_array.index(guess)] = guess
+		@word_array.length.times do |i|
+			if @word_array[i] == guess
+				@feedback[i] = guess
 			end
 		end
 		if @guess_count == word.length * 2 || @feedback == @word
@@ -57,7 +55,7 @@ end
 
 puts "Come one, come all, and seek thy for-tune in the Word Game!!!"
 
-game = WordGame.new("demon")
+game = WordGame.new("inception")
 
 while !game.is_over
 	puts "Please guess a letter in the mystery word"
