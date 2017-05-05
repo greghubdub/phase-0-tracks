@@ -55,7 +55,7 @@ end
 
 # user interface
 
-puts "Come one, come all, and seek thy fourtune in the Word Game!!!"
+puts "Come one, come all, and seek thy for-tune in the Word Game!!!"
 
 game = WordGame.new("demon")
 
