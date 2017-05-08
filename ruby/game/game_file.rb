@@ -64,7 +64,7 @@ while !game.is_over
 		puts "Nope! Try again."
 	end
 	p game.feedback
-	p game.guess_count
+#	p game.guess_count
 end
 
 if game.feedback == game.word
