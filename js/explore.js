@@ -5,21 +5,14 @@
 // starting at 0
 // OR could loop thru forwards, put to new string starting at -1
 
-for (var i = 0; i > original.length; i++) {
-  flipped[-i] = original[i + 1];
-  console.log(flipped);
+// for i equals 4 (top index), until 0, i -= 1
+// add original at index 4 to flipped etc
+
+var original = "hello"
+var flipped = ''
+
+for (var i = original.length - 1; i >= 0; i--) {
+  flipped += original.charAt(i);
 }
 
-for (var i = 0; i < str.length; i++) {
-	console.log(str[i]);
-}
-
-for (var i = 10; i > 0; i--) {
-  console.log(i);
-}
-
-
-for (var i = original.length; i > 0; i--) {
-  flipped[-i] = original[i + 1];
-  console.log(flipped);
-}
+console.log(flipped);
