@@ -41,12 +41,17 @@ class WordGame
 				@feedback[i] = guess
 			end
 		end
+		@feedback
+	end
+
+	def check_is_over
+		
 		if @guess_count == word.length * 2 || @feedback == @word
 			@is_over = true
 		else
 			false
 		end
-		@feedback
+		@is_over
 	end
 
 end
@@ -55,9 +60,9 @@ end
 
 puts "Come one, come all, and seek thy for-tune in the Word Game!!!"
 
-game = WordGame.new("inception")
+game = WordGame.new("turtles")
 
-while !game.is_over
+while game.check_is_over == false
 	puts "Please guess a letter in the mystery word"
 	guess = gets.chomp
 	if !game.check_guess(guess)
