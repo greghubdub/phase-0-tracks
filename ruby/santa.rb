@@ -23,7 +23,7 @@ class Santa
 	end
 
 	def get_mad_at(reindeer)
-		reindeer_ranking.insert(-1, reindeer_ranking.delete_at(reindeer_ranking.index(reindeer)))
+		@reindeer_ranking.insert(-1, @reindeer_ranking.delete_at(@reindeer_ranking.index(reindeer)))
 	end
 
 end
@@ -64,6 +64,8 @@ saint_nick.celebrate_birthday(5)
 
 p saint_nick.age
 
+p saint_nick.reindeer_ranking
+
 saint_nick.get_mad_at("Rudolph")
 
 p saint_nick.reindeer_ranking
@@ -81,3 +83,4 @@ p saint_nick.ethnicity
 	i.celebrate_birthday(1 + rand(140))
 	p i
 end
+
