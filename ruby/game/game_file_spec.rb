@@ -7,5 +7,8 @@ describe WordGame do
 		expect(game.check_guess("o")).to eq "_o___"
 	end
 
-
-end
+	it "checks whether the game is over" do
+		expect(game.is_over).to eq false
+	end
+	
+end	
