@@ -6,6 +6,10 @@
 // check 2 objects for whether they share at least one key-value pair
 // loop through object 1 checking for match with EACH pair in object 2 (loop within loop?)
 
+// RandomStrings
+// Put random string of random number of characters into array
+// Run LongWord on the array
+
 function LongWord(arr) {
 	var longestWord = arr.sort(function (a, b) { return b.length - a.length; })[0];
 	console.log(longestWord)
@@ -14,8 +18,8 @@ function LongWord(arr) {
 var veggies = ['arugula', 'kale', 'cucumber', 'carrot'];
 var buildings = ['Willis Tower', 'John Hancock Building', 'City Hall']
 
-LongWord(veggies)
-LongWord(buildings)
+LongWord(veggies);
+LongWord(buildings);
 
 
 
@@ -34,3 +38,7 @@ var bros = {"Greg":30, "Jeff":25, "Paul": 27};
 PairShare(dudes, bros);
 
 
+
+function RandomStrings(length) {
+	
+}
