@@ -4,26 +4,31 @@
 # We spent [#] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
-#
+# require_relative then "quotes" with the 
+# other file you're getting data from, minus the .rb suffix
+
 require_relative 'state_data'
 
 class VirusPredictor
-
+  
+# sets up what happens with a new instance of the class, such as arguments, and what is
+# in instance or a local variable
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
     @population = population
     @population_density = population_density
   end
-
+ 
+# runs the following 2 methods and returns their value
   def virus_effects
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+    predicted_deaths
+    speed_of_spread
   end
 
   private
 
-  def predicted_deaths(population_density, population, state)
+# takes population density of a state and works outs a death rate based on it
+  def predicted_deaths
     # predicted deaths is solely based on population density
     if @population_density >= 200
       number_of_deaths = (@population * 0.4).floor
@@ -41,7 +46,9 @@ class VirusPredictor
 
   end
 
-  def speed_of_spread(population_density, state) #in months
+# takes population density of a state and works out how much time (in months) the infection
+# will move across the whole state
+  def speed_of_spread #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
     speed = 0.0
@@ -69,7 +76,7 @@ end
 # DRIVER CODE
  # initialize VirusPredictor for each state
 
-
+=begin
 alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
 alabama.virus_effects
 
@@ -82,6 +89,12 @@ california.virus_effects
 alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
 alaska.virus_effects
 
+=end
+
+STATE_DATA.keys.each do |state|
+	current_state = VirusPredictor.new(state, STATE_DATA[state][:population_density], STATE_DATA[state][:population])
+	current_state.virus_effects
+end
 
 #=======================================================================
 # Reflection Section
