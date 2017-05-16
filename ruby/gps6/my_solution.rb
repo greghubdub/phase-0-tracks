@@ -27,6 +27,8 @@ class VirusPredictor
 
   private
 
+=begin
+	
 # takes population density of a state and works outs a death rate based on it
   def predicted_deaths
     # predicted deaths is solely based on population density
@@ -45,13 +47,45 @@ class VirusPredictor
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
   end
+=end
 
+  def predicted_deaths
+  	#result = case value
+  	number_of_deaths = case @population_density
+  		when @population_density >= 200 then (@population * 0.4).floor
+  		when (@population_density >= 150 && @population_density < 200) then (@population * 0.3).floor
+  		when (@population_density >= 100 && @population_density < 150) then (@population * 0.2).floor
+  		when (@population_density >= 50 && @population_density < 100) then (@population * 0.1).floor
+  		else (@population * 0.05).floor
+  	end
+  	print "#{@state} will lose #{number_of_deaths} people in this outbreak"
+  end
+
+  def speed_of_spread
+  	
+  	speed = 0.0
+
+  	case @population_density
+    	when @population_density >= 200 then speed += 0.5
+    	when (@population_density >= 150 && @population_density < 200) then speed += 1
+    	when (@population_density >= 100 && @population_density < 150) then speed += 1.5
+    	when (@population_density >= 50 && @population_density < 100) then speed += 2
+    	else speed += 2.5
+    end
+
+    puts " and will spread across the state in #{speed} months.\n\n"
+
+  end
+
+
+=begin
 # takes population density of a state and works out how much time (in months) the infection
 # will move across the whole state
   def speed_of_spread #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
     speed = 0.0
+
 
     if @population_density >= 200
       speed += 0.5
@@ -69,27 +103,14 @@ class VirusPredictor
 
   end
 
+=end
+
 end
 
 #=======================================================================
 
 # DRIVER CODE
  # initialize VirusPredictor for each state
-
-=begin
-alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
-alabama.virus_effects
-
-jersey = VirusPredictor.new("New Jersey", STATE_DATA["New Jersey"][:population_density], STATE_DATA["New Jersey"][:population])
-jersey.virus_effects
-
-california = VirusPredictor.new("California", STATE_DATA["California"][:population_density], STATE_DATA["California"][:population])
-california.virus_effects
-
-alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
-alaska.virus_effects
-
-=end
 
 STATE_DATA.keys.each do |state|
 	current_state = VirusPredictor.new(state, STATE_DATA[state][:population_density], STATE_DATA[state][:population])
