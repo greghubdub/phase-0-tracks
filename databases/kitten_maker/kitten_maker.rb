@@ -32,12 +32,14 @@ def create_kitten(db, name, age)
   db.execute("INSERT INTO kittens (name, age) VALUES (?, ?)", [name, age])
 end
 
-10000.times do
+800.times do
   create_kitten(db, Faker::Name.name, 0)
 end
 
 # explore ORM by retrieving data
-# kittens = db.execute("SELECT * FROM kittens")
+kittens = db.execute("SELECT * FROM kittens")
+puts kittens.class
+p kittens
 # kittens.each do |kitten|
 #  puts "#{kitten['name']} is #{kitten['age']}"
 # end
