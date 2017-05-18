@@ -1,0 +1,6 @@
+sqlite> SELECT businesses.name, users.first_name, users.last_name, reviews.stars, reviews.comment FROM reviews
+   ...> LEFT OUTER JOIN users ON reviews.user_id=users.id   
+   ...> LEFT OUTER JOIN businesses ON reviews.business_id=businesses.id;
+Grundy Hollow Wedding Chapel|Bradford|Pitt|1|Nothing lasts...
+Lotus Yoga|Mandy|Kaling|5|Really found my chi
+Lotus Yoga|Angela|Jolie|3|Great except Mandy wouldn't shut up
