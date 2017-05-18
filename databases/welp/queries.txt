@@ -1,6 +1,22 @@
+sqlite> SELECT * FROM reviews
+   ...> LEFT OUTER JOIN users ON reviews.user_id=users.id
+   ...> LEFT OUTER JOIN businesses ON reviews.business_id=businesses.id;
+1|1|Nothing lasts...|1|1|1|Bradford|Pitt|1|Grundy Hollow Wedding Chapel
+2|5|Really found my chi|3|2|2|Mandy|Kaling|3|Lotus Yoga
+3|3|Great except Mandy wouldn't shut up|3|3|3|Angela|Jolie|3|Lotus Yoga
+
+
 sqlite> SELECT businesses.name, users.first_name, users.last_name, reviews.stars, reviews.comment FROM reviews
    ...> LEFT OUTER JOIN users ON reviews.user_id=users.id   
    ...> LEFT OUTER JOIN businesses ON reviews.business_id=businesses.id;
 Grundy Hollow Wedding Chapel|Bradford|Pitt|1|Nothing lasts...
 Lotus Yoga|Mandy|Kaling|5|Really found my chi
 Lotus Yoga|Angela|Jolie|3|Great except Mandy wouldn't shut up
+
+sqlite> SELECT businesses.name, users.first_name, users.last_name, reviews.stars, reviews.comment FROM reviews
+   ...> LEFT OUTER JOIN users ON reviews.user_id=users.id   
+   ...> LEFT OUTER JOIN businesses ON reviews.business_id=businesses.id WHERE business_id=3;
+Lotus Yoga|Mandy|Kaling|5|Really found my chi
+Lotus Yoga|Angela|Jolie|3|Great except Mandy wouldn't shut up
+
+
