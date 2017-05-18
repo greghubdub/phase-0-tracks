@@ -1,0 +1,66 @@
+sqlite> SELECT * FROM musicians;
+1|Gene Ween|guitar|true|3
+2|Dean Ween|guitar|true|3
+3|Jerry Garcia|guitar|true|1
+4|Bob Weir|guitar|true|1
+5|Pigpen McKernan|keyboards|true|1
+6|Phil Lesh|bass|true|1
+7|Bill Kreutzmann|drums|false|1
+8|Mickey Hart|drums|false|1
+9|Duane Allman|guitar|false|2
+10|Gregg Allman|organ/piano|true|2
+11|Dickey Betts|guitar|true|2
+12|Jaimoe Johanson|drums|false|2
+13|Berry Oakley|bass|true|2
+14|Butch Trucks|drums|false|2
+
+sqlite> UPDATE musicians SET sings="true" WHERE band_id=1;
+
+sqlite> SELECT * FROM musicians, bands WHERE musicians.band_id = bands.id;
+1|Gene Ween|guitar|true|3|3|Ween|2|alternative rock
+2|Dean Ween|guitar|true|3|3|Ween|2|alternative rock
+3|Jerry Garcia|guitar|true|1|1|Grateful Dead|6|jam
+4|Bob Weir|guitar|true|1|1|Grateful Dead|6|jam
+5|Pigpen McKernan|keyboards|true|1|1|Grateful Dead|6|jam
+6|Phil Lesh|bass|true|1|1|Grateful Dead|6|jam
+7|Bill Kreutzmann|drums|true|1|1|Grateful Dead|6|jam
+8|Mickey Hart|drums|true|1|1|Grateful Dead|6|jam
+9|Duane Allman|guitar|false|2|2|Allman Brothers Band|6|southern rock
+10|Gregg Allman|organ/piano|true|2|2|Allman Brothers Band|6|southern rock
+11|Dickey Betts|guitar|true|2|2|Allman Brothers Band|6|southern rock
+12|Jaimoe Johanson|drums|false|2|2|Allman Brothers Band|6|southern rock
+13|Berry Oakley|bass|true|2|2|Allman Brothers Band|6|southern rock
+14|Butch Trucks|drums|false|2|2|Allman Brothers Band|6|southern rock
+
+sqlite> SELECT bands.name, musicians.name, musicians.instrument FROM musicians JOIN bands ON musicians.band_id = bands.id;
+Ween|Gene Ween|guitar
+Ween|Dean Ween|guitar
+Grateful Dead|Jerry Garcia|guitar
+Grateful Dead|Bob Weir|guitar
+Grateful Dead|Pigpen McKernan|keyboards
+Grateful Dead|Phil Lesh|bass
+Grateful Dead|Bill Kreutzmann|drums
+Grateful Dead|Mickey Hart|drums
+Allman Brothers Band|Duane Allman|guitar
+Allman Brothers Band|Gregg Allman|organ/piano
+Allman Brothers Band|Dickey Betts|guitar
+Allman Brothers Band|Jaimoe Johanson|drums
+Allman Brothers Band|Berry Oakley|bass
+Allman Brothers Band|Butch Trucks|drums
+
+sqlite> DELETE FROM musicians WHERE musicians.name="Pigpen McKernan";
+
+sqlite> SELECT * FROM musicians;
+1|Gene Ween|guitar|true|3
+2|Dean Ween|guitar|true|3
+3|Jerry Garcia|guitar|true|1
+4|Bob Weir|guitar|true|1
+6|Phil Lesh|bass|true|1
+7|Bill Kreutzmann|drums|true|1
+8|Mickey Hart|drums|true|1
+9|Duane Allman|guitar|false|2
+10|Gregg Allman|organ/piano|true|2
+11|Dickey Betts|guitar|true|2
+12|Jaimoe Johanson|drums|false|2
+13|Berry Oakley|bass|true|2
+14|Butch Trucks|drums|false|2
