@@ -4,7 +4,8 @@
 require 'sqlite3'
 
 # database has tables for current inventory and grocery items to be picked up
-db = SQLite3::Database.new("vittles.db")
+$DATABASE = SQLite3::Database.new("vittles.db")
+# $DATABASE.results_as_hash = true
 
 # table for food inventory
 create_inventory_cmd = <<-SQL
@@ -18,7 +19,7 @@ create_inventory_cmd = <<-SQL
 	)
 SQL
 
-db.execute(create_inventory_cmd)
+$DATABASE.execute(create_inventory_cmd)
 
 # table for grocery list
 create_grocery_list_cmd = <<-SQL
@@ -32,7 +33,7 @@ create_grocery_list_cmd = <<-SQL
 	)
 SQL
 
-db.execute(create_grocery_list_cmd)
+$DATABASE.execute(create_grocery_list_cmd)
 
 # when a certain product_general is added to inventory, check grocery_list for same
 # and ask user if they want to remove
@@ -54,10 +55,15 @@ def add_grocery_list_item
 	new_num_of_product = gets.chomp.to_i
 	puts "Enter the size needed"
 	new_size_of_product = gets.chomp
-	db.execute("INSERT INTO grocery_list (product_general, product_specific, product_category,
-		num_of_product, size_of_product) VALUES (new_general, new_specific, new_category, 
-		new_num_of_product, new_size_of_product)")
-	db.execute("SELECT * FROM grocery_list")
+	$DATABASE.execute("INSERT INTO grocery_list (product_general, product_specific, product_category,
+		num_of_product, size_of_product) VALUES ('#{new_general}', '#{new_specific}', 
+		'#{new_category}', '#{new_num_of_product}', '#{new_size_of_product}')")
+
+	list_update = $DATABASE.execute("SELECT product_specific, product_category, num_of_product
+		FROM grocery_list")
+	list_update.each do |i|
+		puts i
+	end
 end
 
 def add_inventory_item
@@ -71,10 +77,15 @@ def add_inventory_item
 	new_num_of_product = gets.chomp.to_i
 	puts "Enter the size of the items"
 	new_size_of_product = gets.chomp
-	db.execute("INSERT INTO inventory (product_general, product_specific, product_category,
-		num_of_product, size_of_product) VALUES (new_general, new_specific, new_category, 
-		new_num_of_product, new_size_of_product)")
-	db.execute("SELECT * FROM inventory")
+	$DATABASE.execute("INSERT INTO inventory (product_general, product_specific, product_category,
+		num_of_product, size_of_product) VALUES ('#{new_general}', '#{new_specific}', 
+		'#{new_category}', '#{new_num_of_product}', '#{new_size_of_product}')")
+
+	inventory_update = $DATABASE.execute("SELECT product_specific, product_category, 
+		num_of_product FROM inventory")
+	inventory_update.each do |i|
+		puts i
+	end
 end
 
 
