@@ -59,7 +59,7 @@ def add_grocery_list_item
 		num_of_product, size_of_product) VALUES ('#{new_general}', '#{new_specific}', 
 		'#{new_category}', '#{new_num_of_product}', '#{new_size_of_product}')")
 
-	list_update = $DATABASE.execute("SELECT product_specific, product_category, num_of_product
+	list_update = $DATABASE.execute("SELECT product_general, product_specific, product_category, num_of_product
 		FROM grocery_list")
 	list_update.each do |i|
 		puts i
@@ -81,7 +81,7 @@ def add_inventory_item
 		num_of_product, size_of_product) VALUES ('#{new_general}', '#{new_specific}', 
 		'#{new_category}', '#{new_num_of_product}', '#{new_size_of_product}')")
 
-	inventory_update = $DATABASE.execute("SELECT product_specific, product_category, 
+	inventory_update = $DATABASE.execute("SELECT product_general, product_specific, product_category, 
 		num_of_product FROM inventory")
 	inventory_update.each do |i|
 		puts i
@@ -92,12 +92,22 @@ end
 # USER INTERFACE
 # make it easy for user to add or remove items from either list
 
-puts "Do you want to add an item to the grocery list or to the existing food inventory?"
+while true
 
-which_list = gets.chomp
+	puts "Do you want to add an item to the grocery list or to the existing food inventory? 
+	If you're done, type 'done'"
 
-if which_list == 'grocery' || which_list == 'grocery list'
-	add_grocery_list_item
-elsif which_list == 'inventory' || which_list == 'food inventory' || which_list == 'existing'
-	add_inventory_item
+	which_list = gets.chomp
+
+	if which_list == 'grocery' || which_list == 'grocery list'
+		add_grocery_list_item
+	elsif which_list == 'inventory' || which_list == 'food inventory' || which_list == 'existing' || which_list == 'existing food inventory'
+		add_inventory_item
+	elsif which_list == 'done'
+		break
+	else
+		puts "I'm sorry, what was that?"
+		next
+	end
+
 end
