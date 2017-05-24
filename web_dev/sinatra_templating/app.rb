@@ -29,6 +29,15 @@ end
 # create HTTP route
 
 get '/songster' do
-	@student = db.execute("SELECT name FROM students").sample[0]
+	@student = db.execute("SELECT name FROM students")[-1][0]
 	erb :songster
+end
+
+get '/ratpack_form' do
+	erb :ratpack_form
+end
+
+post '/ratpack_form' do
+	db.execute("INSERT INTO students (name, campus, age) VALUES (?,?,?)", [params['name'], params['campus'], params['age'].to_i])
+	redirect '/songster'
 end
