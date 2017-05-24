@@ -33,11 +33,11 @@ get '/songster' do
 	erb :songster
 end
 
-get '/ratpack_form' do
+get '/ratpack/new' do
 	erb :ratpack_form
 end
 
-post '/ratpack_form' do
+post '/ratpack' do
 	db.execute("INSERT INTO students (name, campus, age) VALUES (?,?,?)", [params['name'], params['campus'], params['age'].to_i])
 	redirect '/songster'
 end
