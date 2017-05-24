@@ -25,3 +25,10 @@ post '/students' do
 end
 
 # add static resources
+
+# create HTTP route
+
+get '/songster' do
+	@student = db.execute("SELECT name FROM students").sample[0]
+	erb :songster
+end
