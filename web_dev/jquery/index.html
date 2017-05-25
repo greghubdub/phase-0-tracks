@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Awesome Page</title>
+	<link rel="stylesheet" href="styles.css">
+	<script src="jquery-3.2.1.js"></script>
+	<script>
+	$(document).ready(function(){
+		$(".spain").on({
+			mouseenter: function(){
+				$(this).css("background-color", "#ff0000");
+			},
+			mouseleave: function(){
+            	$(this).css("background-color", "#ffff66");
+            }
+        });
+        $(".france").on({
+			mouseenter: function(){
+				$(this).css("background-color", "#ff0000");
+			},
+			mouseleave: function(){
+            	$(this).css("background-color", "#7fdbff");
+            }
+        });
+	});
+	</script>
+</head>
+<body>
+	<h1>BIG AWESOME PAGE</h1>
+	<h2>This Is A Page To Remember</h2>
+	<div class="spain">
+		<h3>SPANG</h3>
+		<p>Este parrafo trata de Espana</p>
+		<p>Hoy hace buen tiempo</p>
+	</div>
+	<div class="france">
+		<h3>FRANKS</h3>
+		<p>Ce paragraphe concerne la France</p>
+		<p>Aujourd'hui, le temps est agreable</p>
+	</div>
+</body>
+</html>
