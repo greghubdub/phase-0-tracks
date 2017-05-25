@@ -22,5 +22,5 @@
 
 ## Thoughts After Research
 
-#### I am picking up the concepts fairly quickly after running through some basics and effects on w3schools, and perusing a couple beginner tutorials on learningjquery.com. I'm ready to give this a shot
+#### I am picking up the concepts fairly quickly after running through some basics and effects on w3schools, and perusing a couple beginner tutorials on learningjquery.com, I'm ready to give this a shot.
 
